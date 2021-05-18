@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Number {
+    int32 value = 1;
+}
+
+message Numbers {
+    int32 val1 = 1;
+    int32 val2 = 2;
+}
+
+service Calculator {
+    rpc SquareRoot(Number) returns (Number) {}
+    rpc Multiply(Numbers) returns (Number) {}
+}
+
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto
